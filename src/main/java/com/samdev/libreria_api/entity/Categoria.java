@@ -1,6 +1,7 @@
 package com.samdev.libreria_api.entity;
 
 import jakarta.persistence.*;
+import jakarta.websocket.server.PathParam;
 
 @Entity
 public class Categoria {
