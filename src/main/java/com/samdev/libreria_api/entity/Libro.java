@@ -1,6 +1,11 @@
 package com.samdev.libreria_api.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+
 import java.math.BigDecimal;
 
 @Entity
@@ -9,22 +14,30 @@ public class Libro {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String titulo;
 
+    @NotNull
     private Integer anioDePublicacion;
 
+    @PositiveOrZero
     private Integer cantidad;
 
+    @NotBlank
     @Column(unique = true)
     private String isbn;
 
     private String descripcion;
 
+    @NotNull
+    @Positive
     private BigDecimal precio;
 
+    @NotNull
     @ManyToOne
     private Autor autor;
 
+    @NotNull
     @ManyToOne
     private Categoria categoria;
 
